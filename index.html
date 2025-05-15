@@ -456,3 +456,140 @@
 			}
 		});
     }
+
+		  $("div.btn-group.sc button.btn").click(function(){
+		$(this).parent().find(".btn-primary").toggleClass('btn-primary btn-white');
+		$(this).toggleClass('btn-white btn-primary');
+		
+		if($('.st .btn-primary').val()=='new')
+		{
+			$('.dt').attr("style","display:none");
+		}
+		else
+		{
+			$('.dt').attr("style","display:inline");
+		}
+		psearch();
+	  });  
+
+		function action()
+	{
+		$('.wrapper-content').empty();
+		$('.wrapper-content').attr("data-cnt","0");
+		loadmore();
+	}
+
+		function psearch()
+	{
+		var para = 'order=' + $('.st .btn-primary').val();
+		
+		if($('.dt .btn-primary').val() !='7777')
+		{
+			para += '&date=' + $('.dt .btn-primary').val();
+		}
+		
+		if($('.tp .btn-primary').val() !='all')
+		{
+			para += '&type=' + $('.tp .btn-primary').val();
+		}
+		
+		if($('.nsearch').val() !='')
+		{
+			para += '&keyword=' + $('.nsearch').val().replace(/[\/?.`#%&\\\'\"]/gi,' ');
+		}
+		window.location.href = "/w/search/" + para;
+	}
+
+		$('.nsb').click(function(e) {
+		psearch();
+	});
+
+		$('.nsearch').keyup(function(e) {
+		if (e.keyCode == 13) psearch();
+	});
+
+	$('#page-wrapper').on('click', '.listmore', function(){
+		loadmore();
+	});
+	
+	$('.wrapper-content').on('click', '.product-desc', function (event){
+		event.preventDefault();
+		var uid;
+		uid = $(this).attr('data-id');
+		var openNewWindow = window.open("about:blank");
+		$.ajax({
+				url : "w/play_reset.php",
+				success : function(){
+					openNewWindow.location.href = "w/" + uid;
+				}
+		});
+	});
+
+		$('.wrapper-content').on('click', '.frank', function (e){
+		e.preventDefault();
+		e.stopPropagation();
+		var openNewWindow = window.open( "w/rank/" + $(this).parent().attr("data-id"));
+    });
+
+	$('.wrapper-content').on('click', '.fedit', function (e){
+		e.stopPropagation();
+		window.location.href = "w/make/" + $(this).parent().attr("data-id");
+    });
+
+		$('.wrapper-content').on('click', '.fdelete', function (e){
+		e.stopPropagation();
+		var $divg = $(this).parent();
+		var uid = $divg.attr("data-id");
+		swal({
+			title: "삭제하시겠습니까?",
+			text: "삭제하면 복구할 수 없습니다!",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonColor: "#DD6B55",
+			confirmButtonText: "네, 삭제할게요!",
+            cancelButtonText: "취소" ,
+			closeOnConfirm: false,
+		}, function () {
+			$.ajax({
+					type : "POST",
+					url : "w/make/frm_del.php",
+					data : "uid=" + uid,
+					success : function(data){
+						if(data=="true")
+						{
+							swal("삭제되었습니다!", "이상형월드컵이 삭제되었습니다.", "success");
+							window.location.href = "/";
+						}
+						else
+						{
+							swal("실패!", "삭제에 실패하였습니다.", "error");
+						}
+					}
+			});
+		});
+    });
+
+		$('.wrapper-content').on('click', '.fshare', function (e){
+		e.stopPropagation();
+		$(this).parent().next('.divshare').show();
+    });
+
+	$('.wrapper-content').on('click', '.divshare', function (e){
+		e.stopPropagation();
+    });
+
+		$('.wrapper-content').on('click', '.fcopy', function (e){
+		e.stopPropagation();
+		$(this).parent().next('.shareurl').select();
+		try {
+			var successful = document.execCommand('copy');
+			$(this).parent().parent().next('.sharemsg').text("주소가 복사되었습니다. 원하는 곳에 붙여넣기 해주세요.").show().fadeOut(3000, function() {
+								// Animation complete.
+							  });
+			}
+		catch (err) {
+			alert("실패하였습니다.");
+		}
+    });
+	
+</script>
