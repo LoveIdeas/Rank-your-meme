@@ -52,6 +52,11 @@
 	if ($(window).height()>600)
 	{
 	}
+
+			$('form').on('submit', function(e) {
+		e.preventDefault(); // 기본 제출 동작 방지
+		window.location.href = './game_main.html'; // game_main.html로 이동
+	});
 });
 
 var bc = new BroadcastChannel('pk');
