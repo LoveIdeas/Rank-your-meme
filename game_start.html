@@ -39,3 +39,32 @@
 </style>
 
 	<script type="text/javascript" async="" src="./synchronizer.js"></script></head>
+
+	<body class="top-navigation  modal-open pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+<script type="text/javascript">
+/*$(window).on('load', function(){
+});*/
+	$(document).ready(function() {
+	
+	if ($(window).height()>600)
+	{
+	}
+});
+
+var bc = new BroadcastChannel('pk');
+		bc.postMessage("pkp");
+bc.onmessage = (event) => {
+	if(event.data=='pkp')
+	{
+		swal({
+			title: "",
+			text: "동시에 2개 이상의 월드컵을 진행할 수 없습니다.\n이전 월드컵은 종료됩니다.",
+		}, function() {
+			window.location.href = './index.html';
+		});
+	}
+};
+</script>
