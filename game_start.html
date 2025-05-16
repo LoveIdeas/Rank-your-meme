@@ -68,3 +68,92 @@ bc.onmessage = (event) => {
 	}
 };
 </script>
+
+    <div id="wrapper">
+		<div id="page-wrapper" class="gray-bg" style="min-height:100%">
+        <div class="row border-bottom white-bg tad">
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                    <i class="fa fa-reorder"></i>
+                </button>
+                <a href="https://loveideas.github.io/Rank-your-meme/index.html" class="navbar-brand"><i class="fa fa-trophy"></i>Rank your meme</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-nav">
+					<li class="dropdown">
+						<a href="hhttps://loveideas.github.io/Rank-your-meme/index.html">이상형 월드컵 랭킹 - [최신] 여자 아이돌 이상형 월드컵 (총 243명)</a>
+					</li>
+                    <li class="dropdown">
+						<a href="https://loveideas.github.io/Rank-your-meme/index.html"> 이상형 월드컵 만들기 </a>
+                    </li>
+					<li class="dropdown">
+							<a href="https://loveideas.github.io/Rank-your-meme/index.html">밴드 소란 단체 셀카 월드컵</a>
+					</li>
+					<li class="dropdown">
+							<a href="https://loveideas.github.io/Rank-your-meme/index.html">Найкращий український письменник</a>
+					</li>
+               </ul>
+            </div>
+        </nav>
+        </div>
+
+			<div class="tad"><br></div>
+		<div id="ads" class="hads">
+</div>
+
+			  <div class="wrapper wrapper-content" style="padding:0">
+					<div class="modal inmodal in" id="divRound" tabindex="-1" role="dialog" aria-hidden="true" style="display: block;">
+						<div class="modal-dialog">
+							<div class="modal-content animated fadeIn">
+								<div class="modal-header" style="padding:10px">
+									<i class="fa fa-trophy modal-icon"></i>
+									<h4 class="modal-title">[최신] 여자 아이돌 이상형 월드컵 (총 243명)</h4>
+								</div>
+								
+								<form role="form">
+									<div class="modal-body" style="padding:10px">
+										<div class="row"></div>											
+											<div class="col-sm-12">
+												<label>Choose choice number.</label>
+												<select class="form-control" id="selRound" name="243" data-u="3KEVsg">
+<option value="243">243강</option><option value="128">128강</option><option value="64">64강</option><option value="32" selected="">32강</option>
+<option value="16">16강</option><option value="8">8강</option><option value="4">4강</option>												
+</select>
+												<div class="m-b" id="rtext">총 243명의 후보 중 무작위 32명이 대결합니다.</div>
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="submit" id="rstart" class="btn btn-primary col-xs-8">시작하기</button>
+										<a href="https://loveideas.github.io/Rank-your-meme/index.html" class="btn btn-white col-xs-3 cancel">Rank your meme</a>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn-primary" id="divShow" data-toggle="modal" data-target="#divRound" data-backdrop="static"></button>
+					<script type="text/javascript"> $('#divShow').click(); </script>
+		</div>
+		</div>
+	</div>
+
+		<script type="text/javascript">
+
+	$('#rank').click(function() {
+		window.location.href = "./rank.html";
+	});
+
+	$(document).ready(function () {
+		$('#restart').click(function() {
+			$.ajax({
+				type : "POST",
+				url : "play_reset.php",
+				async: false,
+				success : function(data){
+					window.location.href = "3KEVsg";	
+				}
+			});
+		});
+
+		
