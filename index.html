@@ -516,7 +516,7 @@
 		event.preventDefault();
 		var uid;
 		uid = $(this).attr('data-id');
-		var openNewWindow = window.open("about:blank");
+		var openNewWindow = window.open("./game_start.html");
 		$.ajax({
 				url : "w/play_reset.php",
 				success : function(){
