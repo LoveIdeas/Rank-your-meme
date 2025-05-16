@@ -156,4 +156,58 @@ bc.onmessage = (event) => {
 			});
 		});
 
-		
+				$('#morelist').click(function () {
+			$.ajax({
+				type : "POST",
+				url : "https://www.piku.co.kr/w/play_comment.php",
+				cache : false,
+				data : "uid=3KEVsg&limit=" + $('#limit').val(),
+				async: false,
+				success : function(data){
+					if(data.length > 0)
+					{
+						$('.social-footer').append(data);
+						$('#limit').val(Number($('#limit').val())+20);
+					}
+					else
+					{
+						$("#morelist").text("마지막 의견입니다.");
+					}
+				}, error:function(request,status,error){
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				   }
+			});
+		});
+	});
+
+			$(document).on("click", ".repcom", function () {
+		$msg = $(this);
+		$.ajax({
+					type : "POST",
+					url : "play_rep_com.php",
+					data : "uid=3KEVsg&cno=" + $(this).attr("data-no"),
+					async: false,
+					success : function(data){
+						$msg.next().text(data);
+						$msg.next().show();
+						$msg.next().fadeOut( 3000, function() {
+							 //Animation complete.
+						})
+					}
+		});
+});
+
+			$(document).on("click", ".delcom", function () {
+		$.ajax({
+					type : "POST",
+					url : "lay_del_com.php",
+					data : "uid=3KEVsg&cno=" + $(this).attr("data-no"),
+					async: false,
+					success : function(){
+						window.location.reload();
+					}
+		});
+});
+</script>
+
+<div class="modal-backdrop in"></div></body></html>
