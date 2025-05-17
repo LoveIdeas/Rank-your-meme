@@ -240,3 +240,15 @@ $(document).on("click", ".delcom", function () {
 			}
 		});
 	};	
+
+			$.twitch_save= function() {
+			$.ajax({
+						type : "POST",
+						url : "twitch_save.php",
+						data : "u=3KEVsg&turl=" + $('#twitchurl').val() + "&tcon=" + $('#twitchcon').is(':checked') + "&aurl=" + $('#afreecatvurl').val() + "&acon=" + $('#afreecatvcon').is(':checked') + "&curl=" + $('#chzzkurl').val() + "&ccon=" + $('#chzzkcon').is(':checked') + "&v=" + $('#twitchvote').is(':checked') + "&c=" + $('#twitchchat').is(':checked') + "&vp=" + $('input[name="vote_pos"]:checked').val(),
+						success : function(data){
+						}
+			});
+		};
+		
+</script>
