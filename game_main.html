@@ -123,3 +123,120 @@ $(document).on('click', '.custom-dropdown', function (e) {
 									</div>
 								</div>
 							</div>
+
+											<div style="width:100%;height:calc(3 * (1vw + 1vh - 1vmin));max-width:100%;max-height:50%;position:relative;left:0%;top:-200%;z-index:4;vertical-align:center;line-height:calc(3 * (1vw + 1vh - 1vmin));background-color: rgba( 0, 0, 0, 0.5 );color:white;font-size:calc(3 * (1vw + 1vh - 1vmin))">Example&nbsp;&nbsp;&nbsp;1st Choice&nbsp;&nbsp;&nbsp;1/16</div>
+							
+							<div id="voteu" style="width:100%;position:relative;left:0%;top:-195%;z-index:4;color:white;text-shadow:-1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;-moz-text-shadow:-1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;-webkit-text-shadow:-1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;pointer-events:none;font-weight:bold;font-size:2.8vh">
+							<div id="lu" style="width:50%;display:inline-block;overflow:hidden">								
+								<div id="lu1" style="width: 15%; float: right; visibility: hidden;">
+								<div id="lu11">　</div>
+								<div id="lu12">　</div>
+								</div>
+							</div>
+							<div id="ru" style="width:50%;display:inline-block">								
+								<div id="ru1" style="width: 15%; float: left; visibility: hidden;">
+									<div id="ru11">　</div>
+									<div id="ru12">　</div>
+								</div></div></div>
+							<div id="versus" style="width:100%;height:calc(7 * (1vw + 1vh - 1vmin));max-width:100%;max-height:50%;background-image:url(&#39;example.jpg&#39;);background-repeat:no-repeat;background-size:contain;background-position:center top;background-color:transparent;position:relative;left:0%;top:-165%;z-index:3;pointer-events:none;"></div>
+							<div style="width:100%;height:calc(7 * (1vw + 1vh - 1vmin));max-width:100%;max-height:50%;background-color:green;position:relative;left:0%;top:-165%;z-index:4;color:white;font-size:calc(2 * (1vw + 1vh - 1vmin));text-shadow:-1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;-moz-text-shadow:-1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;-webkit-text-shadow:-1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;pointer-events:none;">
+								<div id="wleftn" style="width:50%;display:inline-block;text-align:right;padding-right:10%">드림캐쳐 가현</div><div id="wrightn" style="width:50%;display:inline-block;text-align:left;padding-left:10%">에버글로우 시현</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+		</div>
+	</div>
+	
+<script type="text/javascript">
+function onYouTubeIframeAPIReady() {
+}
+</script>
+	
+<script type="text/javascript">
+	$('#rank').click(function() {
+		window.location.href = "./rank.html";
+	});
+
+	$(document).ready(function () {
+		$('#wleft, #rleft').mouseover(function () {
+		});
+		$('#wright').mouseover(function () {
+		});
+		$('#restart').click(function() {
+			$.ajax({
+				type : "POST",
+				url : "play_reset.php",
+				async: false,
+				success : function(data){
+					window.location.href = "./game_main.html";	
+				}
+			});
+		});
+		
+		$('#morelist').click(function () {
+			$.ajax({
+				type : "POST",
+				url : "play_comment.php",
+				cache : false,
+				data : "uid=3KEVsg&limit=" + $('#limit').val(),
+				async: false,
+				success : function(data){
+					if(data.length > 0)
+					{
+						$('.social-footer').append(data);
+						$('#limit').val(Number($('#limit').val())+20);
+					}
+					else
+					{
+						$("#morelist").text("마지막 의견입니다.");
+					}
+				}, error:function(request,status,error){
+					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+				   }
+			});
+		});
+			$('#morelist').trigger("click");
+	});
+	
+$(document).on("click", ".repcom", function () {
+		$msg = $(this);
+		$.ajax({
+					type : "POST",
+					url : "play_rep_com.php",
+					data : "uid=3KEVsg&cno=" + $(this).attr("data-no"),
+					async: false,
+					success : function(data){
+						$msg.next().text(data);
+						$msg.next().show();
+						$msg.next().fadeOut(3000, function() {
+						//Animation complete.
+						})
+					}
+		});
+});
+
+$(document).on("click", ".delcom", function () {
+		$.ajax({
+					type : "POST",
+					url : "play_del_com.php",
+					data : "uid=3KEVsg&cno=" + $(this).attr("data-no"),
+					async: false,
+					success : function(){
+						window.location.reload();
+					}
+		});
+});
+	
+	$.Movepg= function(win,lose) {
+		$.ajax({
+			type : "POST",
+			url : "play.php",
+			data : "u=3KEVsg&p=6823fb03d0a554906625&w=" + win + "&l=" + lose,
+			async: false,
+			success : function(){
+				setTimeout("window.location.replace ('3KEVsg');",800); 
+			}
+		});
+	};	
