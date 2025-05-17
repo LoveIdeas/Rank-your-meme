@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rank your meme</title>
+	<meta name="title" content="Rank your meme">
+	<meta property="og:title" content="Rank your meme">
+	<meta name="description" content="Rank your meme">
+	<meta property="og:description" content="Rank your meme">
+	<meta name="keywords" content="Rank your meme, meme">
+	<link rel="canonical" href="https://loveideas.github.io/Rank-your-meme/game_main.html">
+
+  	<link href="./game_main_files/bootstrap.min.css" rel="stylesheet">
+	<link href="./game_main_files/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./game_main_files/animate.css" rel="stylesheet">
+    <link href="./game_main_files/style.css" rel="stylesheet">
+	
+    <!-- Mainly scripts -->
+	<script src="./jquery.min.js" type="text/javascript"></script>
+	<script src="./bootstrap.min.js" type="text/javascript"></script>
+    <link href="./sweetalert.css" rel="stylesheet">
+    <script src="./sweetalert.min.js" type="text/javascript"></script>
+	
+    <!-- Custom and plugin javascript -->
+	<script src="./main.js" type="text/javascript"></script>
+    <script src="./pace.min.js" type="text/javascript"></script>
+	<script src="./pow.js" type="text/javascript"></script>
+	<script src="./tmi.min.js" type="text/javascript"></script>
+	<script src="./play.js" type="text/javascript"></script>
+
+<style>
+
+@media screen and (max-height: 600px) { .tad { display: none; } .hads{ height:60px; } }
+.ibox-content { height: 90vh; }
+@media (max-width: 487px) { .ibox-content { height: 70vh; }}
+
+</style>
+
+<script type="text/javascript" async="" src="./synchronizer.js"></script>
+
+</head>
+
+<body class="top-navigation pace-done"><div class="pace pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+<script type="text/javascript">
+/*$(window).on('load', function(){
+});*/
+$(document).ready(function() {
+	
+	if ($(window).height()>600)
+	{
+			$('html, body').animate({scrollTop : 65}, 1);
+	}
+});
+
+  var bc = new BroadcastChannel('pk');
+bc.onmessage = (event) => {
+	if(event.data=='pkp')
+	{
+		swal({
+			title: "",
+			text: "동시에 2개 이상의 월드컵을 진행할 수 없습니다.\n이전 월드컵은 종료됩니다.",
+		}, function() {
+			window.location.href = 'https://loveideas.github.io/Rank-your-meme';
+		});
+	}
+};
+</script>
+    <div id="wrapper">
+		<div id="page-wrapper" class="gray-bg" style="min-height:100%">
+        <div class="row border-bottom white-bg tad">
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                    <i class="fa fa-reorder"></i>
+                </button>
+                <a href="https://loveideas.github.io/Rank-your-meme" class="navbar-brand"><i class="fa fa-trophy"></i>Rank your meme</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="https://loveideas.github.io/Rank-your-mem">Rank your meme</a>
+                    </li>
+                    <li class="dropdown">
+                </ul>
+            </div>
+        </nav>
+        </div>
+</div>
+
+<script type="text/javascript">
+$(document).on('click', '.custom-dropdown', function (e) {
+  e.stopPropagation();
+});
+</script>
+
+        <div class="wrapper wrapper-content" style="padding:0">
+            <div class="row">
+                <div class="col-lg-12" style="padding:0px">
+                    <div class="ibox float-e-margins" style="margin:0px">
+                        <div class="ibox-content" style="text-align:center;padding:0px;background-color:#181818;">
+								<div id="wleft" style="width:50%;height:100%;max-width:50%;max-height:100%;background-image: url(&#39;./example.jpg&#39;);background-repeat:no-repeat;background-size:contain;background-position:right center;position:relative;z-index:1" name="19248937">
+								<div id="lbtn" style="width:100%;height:10%;padding:0px;font-size:6vh;font-weight:bold;position:relative;top:81%;overflow:hidden;text-align:center;color:white;text-shadow:-1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;-moz-text-shadow:-1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;-webkit-text-shadow:-1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;">
+									<div id="l1" style="width: 15%; float: right; font-size: 3vh; visibility: hidden;">
+										<div id="l11"></div>
+										<div id="l12"></div>
+									</div>
+									<div id="l2" style="width:85%;float:left;overflow:hidden">
+									</div>
+								</div>
+							</div>
+		
+								<div id="wright" style="width:50%;height:100%;max-width:50%;max-height:100%;background-image: url(&#39;./example.jpg&#39;);background-repeat:no-repeat;background-size:contain;background-position:left center;position:relative;left:50%;top:-100%;z-index:2" name="19248942">
+								<div id="rbtn" style="width:100%;height:10%;padding:0px;font-size:6vh;font-weight:bold;position:relative;top:81%;overflow:hidden;text-align:center;color:white;text-shadow:-1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;-moz-text-shadow:-1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;-webkit-text-shadow:-1px 0 #000000,0 1px #000000,1px 0 #000000,0 -1px #000000;">
+									<div id="r1" style="width: 15%; float: left; font-size: 3vh; visibility: hidden;">
+										<div id="r11"></div>
+										<div id="r12"></div>
+									</div>
+									<div id="r2" style="width:85%;float:right;overflow:hidden">
+									</div>
+								</div>
+							</div>
